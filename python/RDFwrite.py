@@ -60,6 +60,7 @@ def ID_GEN(namespace,tid):
 
 pe.namespaces=namespaces
 
+
 ns=namespaces=pe.namespaces(["rdf","rdfs","owl","xsd", # basic namespaces
                           "aa","ot","opa","ops","ore", "obs","vbs","ocd", # participatory namespaces
                           "dcterms","dc", # useful Dublincore Metadata
