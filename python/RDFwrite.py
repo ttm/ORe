@@ -257,9 +257,14 @@ G(talg,ore.url,L("https://github.com/ttm/vocabulario-participacao/blob/master/sc
 
 G(talg,ore.derivedResource,ore.Resource+"#Percolation")
 G(talg,ore.url,L("https://github.com/ttm/vocabulario-participacao/blob/master/scripts/obsPNPS.py",xsd.anyURI))
+ot=ns["ot"]
+G(ot.base+"#Ontology",ore.prototypeOf,ore.base+"#Ontology")
+G(ot.base+"#Ontology",ore.prototypeOf,ore.base+"#Framework")
 
-G(ore.ot,ore.prototypeOf,ore.base+"#Ontology")
-G(ore.ot,ore.prototypeOf,ore.base+"#Framework")
+G(talg,ore.derivedResource,ore.Resource+"#Percolation")
+G(talg,ore.url,L("https://github.com/ttm/vocabulario-participacao/blob/master/scripts/obsPNPS.py",xsd.anyURI))
+
+
 
 f=open("rdf/oreFirstTriplestore.rdf","wb")
 f.write(g.serialize())
