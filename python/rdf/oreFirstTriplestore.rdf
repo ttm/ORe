@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:ore="http://purl.org/socialparticipation/ore/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Doubt#meteor1">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Doubt"/>
+    <ore:description xml:lang="en">What are the differences between meteor packages, platform, sdk and project? What are the available options?</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Birthdate#birth">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Birthdate"/>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">19/Out/1982</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Pick#3">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Pick"/>
+    <ore:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://dl.dropboxusercontent.com/u/22209842/fotosImagens/28042014.png</ore:url>
+    <ore:qualification xml:lang="en">ok</ore:qualification>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#thesisAdvisorReview">
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ore:level>
+    <ore:description xml:lang="en">deliver thesis for review by the advisor</ore:description>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">15/Nov/2016</ore:dueDate>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#thesisReview">
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ore:level>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">15/Apr/2016</ore:dueDate>
+    <ore:description xml:lang="en">deliver thesis review</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone">
+    <rdfs:comment xml:lang="en">a goal that consists of other minor milestones or tasks. A milestone should usually take at least one day.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#cssBeta">
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</ore:level>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">26/Set/2015</ore:dueDate>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">make first betas for ccs presentation</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#FinishDoctorate">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</ore:level>
+    <ore:description xml:lang="en">finish doctare process</ore:description>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">15/Mai/2016</ore:dueDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Doubt#meteor2">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Doubt"/>
+    <ore:description xml:lang="en">What are the right tools for navigating RDF in meteor/javascript such as in pubby? Should whis be done by hand by loading RDF, starting from a class or overview and loading appropriate predicates and objects for a selected class?</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#thesisDefense">
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ore:level>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">15/Fev/2016</ore:dueDate>
+    <ore:description xml:lang="en">thesis defense</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Algorithm#obsSynth">
+    <ore:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://github.com/ttm/vocabulario-participacao/blob/master/scripts/obsPNPS.py</ore:url>
+    <ore:description xml:lang="en">triplification facilities for rapid specificationi. Created in the RDF representation of the Brazilian Decree 8.243 (PNPS) conceptualization.</ore:description>
+    <ore:derivedResource rdf:resource="http://purl.org/socialparticipation/ore/Resource#Percolation"/>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Algorithm"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick">
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ore/Id"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#orePercolate">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</ore:level>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">write first operating version of ORe to be confortable enough for next task</ore:description>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">26/Set/2015</ore:dueDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Id#name">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Id"/>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Renato Fabbri</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Birthdate">
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ore/Id"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick#blober">
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">blober</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Nick"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#thesisDeposit">
+    <ore:description xml:lang="en">deposit thesis</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ore:level>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">15/Dec/2015</ore:dueDate>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#oreStart">
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">write first operating version of ORe to be confortable enough for next task</ore:description>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">26/Set/2015</ore:dueDate>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</ore:level>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#finishArticles">
+    <ore:description xml:lang="en">deliver final versions of articles</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">27/Out/2015</ore:dueDate>
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ore:level>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Pick#1">
+    <ore:qualification xml:lang="en">no neck</ore:qualification>
+    <ore:qualification xml:lang="en">strange</ore:qualification>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Pick"/>
+    <ore:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1384027461.png</ore:url>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Pick#4">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Pick"/>
+    <ore:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://dl.dropboxusercontent.com/u/22209842/fotosImagens/2011-09-02-023637__.png</ore:url>
+    <ore:qualification xml:lang="en">freak</ore:qualification>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/ProgResource#semantic_web_tools">
+    <ore:qualification xml:lang="pt">para programação</ore:qualification>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/ProgResource"/>
+    <ore:qualification xml:lang="pt">javascript</ore:qualification>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#finishSoftware">
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ore:level>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">15/Nov/2015</ore:dueDate>
+    <ore:description xml:lang="en">deliver final versions of software</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Milestone#finishAudiovisualizations">
+    <ore:description xml:lang="en">deliver final versions of audiovisualizations</ore:description>
+    <ore:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</ore:level>
+    <ore:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">15/Nov/2015</ore:dueDate>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Milestone"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Pick">
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ore/Id"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick#hybrid">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Nick"/>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hybrid</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/data0.rdf">
+    <dcterms:description xml:lang="en">ORe (Ontology of the Research) initial triplestore (0)</dcterms:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ot/base#Ontology">
+    <ore:prototypeOf rdf:resource="http://purl.org/socialparticipation/ore/base#Ontology"/>
+    <ore:prototypeOf rdf:resource="http://purl.org/socialparticipation/ore/base#Framework"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Idea#suck_data">
+    <ore:description xml:lang="en">Put a suck my data button on the skin, by which a person can login via FB, TW, email, etc to have its data sucked</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Idea"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick#tatoman">
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tatoman</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Nick"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Id#usualID">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Id"/>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rfabbri</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Task">
+    <rdfs:comment xml:lang="en">a simple task without subdivisions a priori.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick#hercules">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Nick"/>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hercules</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick#ttm">
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ttm</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Nick"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Pick#2">
+    <ore:url rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1390391951.png</ore:url>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Pick"/>
+    <ore:qualification xml:lang="en">funny, strange eye, show off</ore:qualification>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick#greenkobold">
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Nick"/>
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">greenkobold</ore:description>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/Nick#rfabbri">
+    <ore:description rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rfabbri</ore:description>
+    <rdf:type rdf:resource="http://purl.org/socialparticipation/ore/Nick"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/socialparticipation/ore/ProgResource">
+    <rdfs:subClassOf rdf:resource="http://purl.org/socialparticipation/ore/Resource"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,157 @@
+@prefix aa: <http://purl.org/socialparticipation/aa/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix obs: <http://purl.org/socialparticipation/obs/> .
+@prefix ocd: <http://purl.org/socialparticipation/ocd/> .
+@prefix opa: <http://purl.org/socialparticipation/opa/> .
+@prefix ops: <http://purl.org/socialparticipation/ops/> .
+@prefix ore: <http://purl.org/socialparticipation/ore/> .
+@prefix ot: <http://purl.org/socialparticipation/ot/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix tsioc: <http://rdfs.org/sioc/types#> .
+@prefix vbs: <http://purl.org/socialparticipation/vbs/> .
+@prefix wsg: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/socialparticipation/ore/Algorithm#obsSynth> a ore:Algorithm ;
+    ore:derivedResource <http://purl.org/socialparticipation/ore/Resource#Percolation> ;
+    ore:description "triplification facilities for rapid specificationi. Created in the RDF representation of the Brazilian Decree 8.243 (PNPS) conceptualization."@en ;
+    ore:url "https://github.com/ttm/vocabulario-participacao/blob/master/scripts/obsPNPS.py"^^xsd:anyURI .
+
+<http://purl.org/socialparticipation/ore/Birthdate#birth> a ore:Birthdate ;
+    ore:description "19/Out/1982"^^xsd:dateTime .
+
+<http://purl.org/socialparticipation/ore/Doubt#meteor1> a ore:Doubt ;
+    ore:description "What are the differences between meteor packages, platform, sdk and project? What are the available options?"@en .
+
+<http://purl.org/socialparticipation/ore/Doubt#meteor2> a ore:Doubt ;
+    ore:description "What are the right tools for navigating RDF in meteor/javascript such as in pubby? Should whis be done by hand by loading RDF, starting from a class or overview and loading appropriate predicates and objects for a selected class?"@en .
+
+<http://purl.org/socialparticipation/ore/Id#name> a ore:Id ;
+    ore:description "Renato Fabbri"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Id#usualID> a ore:Id ;
+    ore:description "rfabbri"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Idea#suck_data> a ore:Idea ;
+    ore:description "Put a suck my data button on the skin, by which a person can login via FB, TW, email, etc to have its data sucked"@en .
+
+<http://purl.org/socialparticipation/ore/Milestone#FinishDoctorate> a ore:Milestone ;
+    ore:description "finish doctare process"@en ;
+    ore:dueDate "15/Mai/2016"^^xsd:dateTime ;
+    ore:level 200 .
+
+<http://purl.org/socialparticipation/ore/Milestone#cssBeta> a ore:Milestone ;
+    ore:description "make first betas for ccs presentation"^^xsd:string ;
+    ore:dueDate "26/Set/2015"^^xsd:dateTime ;
+    ore:level 10 .
+
+<http://purl.org/socialparticipation/ore/Milestone#finishArticles> a ore:Milestone ;
+    ore:description "deliver final versions of articles"@en ;
+    ore:dueDate "27/Out/2015"^^xsd:dateTime ;
+    ore:level 100 .
+
+<http://purl.org/socialparticipation/ore/Milestone#finishAudiovisualizations> a ore:Milestone ;
+    ore:description "deliver final versions of audiovisualizations"@en ;
+    ore:dueDate "15/Nov/2015"^^xsd:dateTime ;
+    ore:level 100 .
+
+<http://purl.org/socialparticipation/ore/Milestone#finishSoftware> a ore:Milestone ;
+    ore:description "deliver final versions of software"@en ;
+    ore:dueDate "15/Nov/2015"^^xsd:dateTime ;
+    ore:level 100 .
+
+<http://purl.org/socialparticipation/ore/Milestone#orePercolate> a ore:Milestone ;
+    ore:description "write first operating version of ORe to be confortable enough for next task"^^xsd:string ;
+    ore:dueDate "26/Set/2015"^^xsd:dateTime ;
+    ore:level 7 .
+
+<http://purl.org/socialparticipation/ore/Milestone#oreStart> a ore:Milestone ;
+    ore:description "write first operating version of ORe to be confortable enough for next task"^^xsd:string ;
+    ore:dueDate "26/Set/2015"^^xsd:dateTime ;
+    ore:level 10 .
+
+<http://purl.org/socialparticipation/ore/Milestone#thesisAdvisorReview> a ore:Milestone ;
+    ore:description "deliver thesis for review by the advisor"@en ;
+    ore:dueDate "15/Nov/2016"^^xsd:dateTime ;
+    ore:level 100 .
+
+<http://purl.org/socialparticipation/ore/Milestone#thesisDefense> a ore:Milestone ;
+    ore:description "thesis defense"@en ;
+    ore:dueDate "15/Fev/2016"^^xsd:dateTime ;
+    ore:level 100 .
+
+<http://purl.org/socialparticipation/ore/Milestone#thesisDeposit> a ore:Milestone ;
+    ore:description "deposit thesis"@en ;
+    ore:dueDate "15/Dec/2015"^^xsd:dateTime ;
+    ore:level 100 .
+
+<http://purl.org/socialparticipation/ore/Milestone#thesisReview> a ore:Milestone ;
+    ore:description "deliver thesis review"@en ;
+    ore:dueDate "15/Apr/2016"^^xsd:dateTime ;
+    ore:level 100 .
+
+<http://purl.org/socialparticipation/ore/Nick#blober> a ore:Nick ;
+    ore:description "blober"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Nick#greenkobold> a ore:Nick ;
+    ore:description "greenkobold"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Nick#hercules> a ore:Nick ;
+    ore:description "hercules"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Nick#hybrid> a ore:Nick ;
+    ore:description "hybrid"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Nick#rfabbri> a ore:Nick ;
+    ore:description "rfabbri"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Nick#tatoman> a ore:Nick ;
+    ore:description "tatoman"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Nick#ttm> a ore:Nick ;
+    ore:description "ttm"^^xsd:string .
+
+<http://purl.org/socialparticipation/ore/Pick#1> a ore:Pick ;
+    ore:qualification "no neck"@en,
+        "strange"@en ;
+    ore:url "https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1384027461.png"^^xsd:anyURI .
+
+<http://purl.org/socialparticipation/ore/Pick#2> a ore:Pick ;
+    ore:qualification "funny, strange eye, show off"@en ;
+    ore:url "https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1390391951.png"^^xsd:anyURI .
+
+<http://purl.org/socialparticipation/ore/Pick#3> a ore:Pick ;
+    ore:qualification "ok"@en ;
+    ore:url "https://dl.dropboxusercontent.com/u/22209842/fotosImagens/28042014.png"^^xsd:anyURI .
+
+<http://purl.org/socialparticipation/ore/Pick#4> a ore:Pick ;
+    ore:qualification "freak"@en ;
+    ore:url "https://dl.dropboxusercontent.com/u/22209842/fotosImagens/2011-09-02-023637__.png"^^xsd:anyURI .
+
+<http://purl.org/socialparticipation/ore/ProgResource#semantic_web_tools> a ore:ProgResource ;
+    ore:qualification "javascript"@pt,
+        "para programação"@pt .
+
+ore:Task rdfs:comment "a simple task without subdivisions a priori."@en .
+
+ore:data0.rdf dcterms:description "ORe (Ontology of the Research) initial triplestore (0)"@en .
+
+<http://purl.org/socialparticipation/ot/base#Ontology> ore:prototypeOf <http://purl.org/socialparticipation/ore/base#Framework>,
+        <http://purl.org/socialparticipation/ore/base#Ontology> .
+
+ore:Birthdate rdfs:subClassOf ore:Id .
+
+ore:ProgResource rdfs:subClassOf ore:Resource .
+
+ore:Pick rdfs:subClassOf ore:Id .
+
+ore:Nick rdfs:subClassOf ore:Id .
+
+ore:Milestone rdfs:comment "a goal that consists of other minor milestones or tasks. A milestone should usually take at least one day."@en .
+

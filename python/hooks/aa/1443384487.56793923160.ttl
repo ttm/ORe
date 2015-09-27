@@ -1,0 +1,15 @@
+@prefix ns1: <http://purl.org/socialparticipation/aa/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/socialparticipation/aa/Shout#1443384487.56793923160> a ns1:Shout ;
+    ns1:created "2015-09-27T17:08:07.568392"^^xsd:dateTime ;
+    ns1:provenance "ORe"^^xsd:string ;
+    ns1:shoutMessage "segundo shout em rdf"^^xsd:string ;
+    ns1:user <http://purl.org/socialparticipation/aa/User#anonymous> .
+
+<http://purl.org/socialparticipation/aa/User#anonymous> a ns1:User ;
+    ns1:nick "anonymous"^^xsd:string .
+
