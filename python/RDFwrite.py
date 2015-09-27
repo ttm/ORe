@@ -42,11 +42,16 @@ def namespaces(ids=[]):
         else:
             g.namespace_manager.bind(tid, idict[tid])    
     return idict
+def ID_GEN(namespace,tid):
+    ind=namespace+"#"+tid
+    G(ind,ns["rdf"].type,namespace)
+    return ind
+
 
 
 pe.namespaces=namespaces
 
-namespaces=pe.namespaces(["rdf","rdfs","owl","xsd", # basic namespaces
+ns=namespaces=pe.namespaces(["rdf","rdfs","owl","xsd", # basic namespaces
                           "aa","ot","opa","ops","ore", "obs","vbs","ocd", # participatory namespaces
                           "dcterms","dc", # useful Dublincore Metadata
                             ("wsg","http://www.w3.org/2003/01/geo/wgs84_pos#"), # georeferencing
@@ -55,8 +60,55 @@ namespaces=pe.namespaces(["rdf","rdfs","owl","xsd", # basic namespaces
                             ("schema","http://schema.org/") # umbrella
                           ])
 
+# Info about ORe
+#g.add((ouri,dct.description,r.Literal(u"Ontologia do Participa.br, levantada com base nos dados e para conectar com outras instâncias")))
+G(      ns["ore"].data0+".rdf",
+        ns["dcterms"].description,
+        L("ORe (Ontology of the Research) initial triplestore (0)",lang="en")
+        #L("Ontology of the Research (ORe), with focus on media, learning, agenda, and processes description",lang="pt")
+    )
+
+# Add Individuals, Literals, etc.
+G(    ID_GEN(ns["ore"].Doubt,"meteor1"),
+      ns["ore"].description,
+      L("What are the differences between meteor packages, platform, sdk and project? What are the available options?",lang="en")
+    )
+
+G(    ID_GEN(ns["ore"].Doubt,"meteor2"),
+      ns["ore"].description,
+      L("What are the right tools for navigating RDF in meteor/javascript such as in pubby? Should whis be done by hand by loading RDF, starting from a class or overview and loading appropriate predicates and objects for a selected class?",lang="en")
+  )
+
+#G(    ns["ore"].ProgResource,
+#      ns["rdfs"].subClassOf,
+#      ns["ore"].Resource,
+#  )
 
 
+G(    ns["ore"].ProgResource,
+      ns["rdfs"].subClassOf,
+      ns["ore"].Resource,
+  )
+# creates a uri using the resource path and adds it as an individual of that path:
+turi=ID_GEN(ns["ore"].ProgResource,"semantic_web_tools")
+G(turi,ns["ore"].qualification,L("para programação",lang="pt"))
+G(turi,ns["ore"].qualification,L("javascript",lang="pt"))
+#"ProgResource","url","http://www.w3.org/wiki/SemanticWebTools",
+#"ProgResource","a","Resource", # OK
+#"ProgResource","qualification",L("para programação","pt"),
+#"ProgResource","qualification",L("javascript","pt"),
+
+
+# Save resulting RDF as XML and Turtle
+
+
+
+f=open("rdf/oreFirstTriplestore.rdf","wb")
+f.write(g.serialize())
+f.close()
+f=open("rdf/oreFirstTriplestore.ttl","wb")
+f.write(g.serialize(format="turtle"))
+f.close()
 ##########################################
 #### TTM
 """
@@ -80,8 +132,8 @@ URI="http://purl.org/socialparticipation/ore/"
 # or pubby
 
 # sequência de triplas:
-T=[("Doubt","doubt","What are the differences between meteor packages, platform, sdk and project? What are the available options?"),
-("Doubt","doubt","What are the right tools for navigating RDF in meteor/javascript such as in pubby? Should whis be done by hand by loading RDF, starting from a class or overview and loading appropriate predicates and objects for a selected class?"),
+T=[("Doubt","doubt","What are the differences between meteor packages, platform, sdk and project? What are the available options?"), # OK
+("Doubt","doubt","What are the right tools for navigating RDF in meteor/javascript such as in pubby? Should whis be done by hand by loading RDF, starting from a class or overview and loading appropriate predicates and objects for a selected class?"), # OK
 "ProgResource","url","http://www.w3.org/wiki/SemanticWebTools",
 "ProgResource","a","Resource",
 "ProgResource","qualification",L("para programação","pt"),
