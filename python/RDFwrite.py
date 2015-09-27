@@ -1,4 +1,99 @@
-import rdflib as r
+import rdflib as r, pygraphviz as gv, sys
+import  importlib
+from IPython.lib.deepreload import reload as dreload
+import percolation as pe
+#importlib.reload(g.loadMessages)
+#importlib.reload(g.listDataStructures)
+#importlib.reload(g.interactionNetwork)
+#importlib.reload(pe.linkedData)
+##dreload(pe,exclude="pytz")
+#dreload(pe)
+
+g = r.Graph()
+def G(S,P,O):
+    g.add((S,P,O))
+L=r.Literal
+
+def namespaces(ids=[]):
+    """Declare namespace URIs in RDF graph and return a dictionary of them.
+    
+    input: list of ids. Use tuple for (idstring, URIString) of
+    benefint from RDFLib and particpatory IDs 
+    throughtput: declare RDF in graph g
+    output: dictionary of {key=id, value=URI} as declared
+    
+    Deals automaticaly with namespaces from RDFlib and selected
+    participatory libs""""
+    idict={}
+    for tid in ids:
+        # findig URIRef 
+        if type(tid)!="string": # tuple (tid,iuri)
+            idict[tid[0]]=r.Namespace(tid[1])
+        elif tid in [fooString.lower() for fooString in dir(r.namespaces)]: # rdflib shortcut
+            if tid in dir(r.namespaces):
+                idict[tid]=eval("r.namespace."+tid)
+            else:
+                idict[tid]=eval("r.namespace."+tid.uppercase())
+        else: # participatory shortcut
+            idict[tid]=r.Namespace("http://purl.org/socialparticipation/{}/".format(tid))
+        # adding to RDF Graph
+        g.namespace_manager.bind(tid, idict[tid])    
+
+
+pe.namespaces=namespaces
+
+namespaces=pe.namespaces(["rdf","rdfs","owl","xsd", # basic namespaces
+                          "aa","ot","opa","ops","ore", "obs","vbs","ocd", # participatory namespaces
+                          "wsg","dc2","dc","sioc","tsioc","schema"
+                          ])
+
+# BASIC NAMESPACES
+rdf = r.namespace.RDF
+g.namespace_manager.bind("rdf", rdf)    
+rdfs = r.namespace.RDFS
+g.namespace_manager.bind("rdfs", rdfs)    
+foaf = r.namespace.foaf
+g.namespace_manager.bind("foaf", foaf)    
+owl = r.namespace.OWL
+g.namespace_manager.bind("owl", owl)    
+xsd = r.namespace.XSD
+g.namespace_manager.bind("xsd", xsd)
+
+# PARTICIPATORY NAMESPACES
+aa = r.Namespace("http://purl.org/socialparticipation/aa/")
+g.namespace_manager.bind("aa", aa)    
+ot = r.Namespace("http://purl.org/socialparticipation/ot/")
+g.namespace_manager.bind("ot", ot) 
+opa = r.Namespace("http://purl.org/socialparticipation/opa/")
+g.namespace_manager.bind("opa", opa)    
+ops = r.Namespace("http://purl.org/socialparticipation/ops/")
+g.namespace_manager.bind("ops", ops)    
+ore = r.Namespace("http://purl.org/socialparticipation/ore/")
+g.namespace_manager.bind("ore", ore)    
+obs = r.Namespace("http://purl.org/socialparticipation/obs/")
+g.namespace_manager.bind("obs", obs)    
+vbs = r.Namespace("http://purl.org/socialparticipation/vbs/")
+g.namespace_manager.bind("vbs", vbs)    
+
+# USEFUL NAMESPACES
+g.namespace_manager.bind("wsg", "http://www.w3.org/2003/01/geo/wgs84_pos#")    
+g.namespace_manager.bind("dc2", "http://purl.org/dc/elements/1.1/")    
+g.namespace_manager.bind("dc", "http://purl.org/dc/terms/")    
+g.namespace_manager.bind("sioc", "http://rdfs.org/sioc/ns#")    
+g.namespace_manager.bind("tsioc", "http://rdfs.org/sioc/types#")    
+g.namespace_manager.bind("schema", "http://schema.org/")
+
+
+
+
+##########################################
+#### TTM
+"""
+sys.exit()
+import rdflib as r, pygraphviz as gv, sys
+import  importlib
+from IPython.lib.deepreload import reload as dreload
+import percolation as pe
 
 URI="http://purl.org/socialparticipation/ore/"
 # redirect to rfabbri.meteor.com/navigate/
@@ -30,7 +125,7 @@ T=[("Doubt","doubt","What are the differences between meteor packages, platform,
         "IDS","nick","greenkobold",
         "IDS","pseudonyms","Various manly for music, code and literature",
         "IDS","birthdate","19/Out/1982",
-        tpick=I(tclass="PICK",tid=mkid("PICK")
+        tpick=I(tclass="PICK",tid=mkid("PICK"),
         "IDS","pick",tpick,
         tpick,P("url"),L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1384027461.png"),
         tpick,P("qualification"),L("no neck"),
@@ -111,10 +206,34 @@ G(tmilestone,"level",10)
 G(tmilestone,"description","write first operating version of ORe to be confortable enough for next task")
 G(tmilestone,"dueDate","26/Set/2015")
 
+tmilestone0=tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
+G(tmilestone,"level",7)
+G(tmilestone,"description","Integrate percolation python package to ORe in the making of the RDF")
+G(tmilestone,"dueDate","26/Set/2015")
+
 tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
 G(tmilestone,"level",10)
 G(tmilestone,"description","make first betas for ccs presentation")
 G(tmilestone0,ore.nextTask,tmilestone)
 
+#############
+## Resources
+
+talg=C(tclass="Algorithm",tid=mkid("Algorithm"))
+G(talg,"description","triplification facilities for rapid specificationi. Created in the RDF representation of the Brazilian Decree 8.243 (PNPS) conceptualization.")
+G(talg,ore.project,ore.Resource.Percolation)
+#G(talg,ore.derivedProject,"Percolation")
+G(talg,ore.derivedResource,ore.Resource.Percolation)
+G(talg,"url","https://github.com/ttm/vocabulario-participacao/blob/master/scripts/obsPNPS.py")
+
+G(ore.ot,ore.prototypeOf,ore)
+
+
+#############
+## Hand-on tasks and milestones
+
+
+
+"""
 
 
