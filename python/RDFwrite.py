@@ -12,7 +12,16 @@ import percolation as pe
 g = r.Graph()
 def G(S,P,O):
     g.add((S,P,O))
-L=r.Literal
+#L=r.Literal
+def L(data, datatype_=None,lang=None):
+    if datatype_ and lang:
+        return r.Literal(data, datatype=datatype_,lang=lang)
+    elif datatype_:
+        return r.Literal(data, datatype=datatype_)
+    elif lang:
+        return r.Literal(data, lang=lang)
+    else:
+        return r.Literal(data)
 
 def namespaces(ids=[]):
     """Declare namespace URIs in RDF graph and return a dictionary of them.
@@ -77,18 +86,15 @@ G(    ID_GEN(ns["ore"].Doubt,"meteor1"),
 G(    ID_GEN(ns["ore"].Doubt,"meteor2"),
       ns["ore"].description,
       L("What are the right tools for navigating RDF in meteor/javascript such as in pubby? Should whis be done by hand by loading RDF, starting from a class or overview and loading appropriate predicates and objects for a selected class?",lang="en")
-  )
-
-#G(    ns["ore"].ProgResource,
-#      ns["rdfs"].subClassOf,
-#      ns["ore"].Resource,
-#  )
-
-
+)
+G(    ID_GEN(ns["ore"].Idea,"suck_data"),
+      ns["ore"].description,
+      L("Put a suck my data button on the skin, by which a person can login via FB, TW, email, etc to have its data sucked",lang="en")
+)
 G(    ns["ore"].ProgResource,
       ns["rdfs"].subClassOf,
       ns["ore"].Resource,
-  )
+)
 # creates a uri using the resource path and adds it as an individual of that path:
 turi=ID_GEN(ns["ore"].ProgResource,"semantic_web_tools")
 G(turi,ns["ore"].qualification,L("para programação",lang="pt"))
@@ -179,6 +185,11 @@ G(    turi,
       ns["ore"].qualification,
     L("freak",lang="en")
   )
+ore=ns["ore"]; xsd=ns["xsd"]
+turi=ID_GEN(ore.Milestone,"thesisDeposit")
+G(turi,ore.level,L(100,xsd.integer))
+G(turi,ore.description,L("deposit thesis",0,"en"))
+G(turi,ore.dueDate,L("15/Dec/2015",xsd.dateTime))
 
 
 
@@ -193,65 +204,7 @@ f.close()
 #### TTM
 """
 sys.exit()
-import rdflib as r, pygraphviz as gv, sys
-import  importlib
-from IPython.lib.deepreload import reload as dreload
-import percolation as pe
 
-URI="http://purl.org/socialparticipation/ore/"
-# redirect to rfabbri.meteor.com/navigate/
-# example:
-# "http://purl.org/socialparticipation/ore/Pick/1" to:
-# redirect to http://rfabbri.meteor.com/navigate/Pick/1
-# and
-# "http://purl.org/socialparticipation/ore/Pick" to:
-# redirect to http://rfabbri.meteor.com/navigate/Pick
-# showing all picks.
-
-# study possibility of using something already working
-# or pubby
-
-# sequência de triplas:
-T=[("Doubt","doubt","What are the differences between meteor packages, platform, sdk and project? What are the available options?"), # OK
-("Doubt","doubt","What are the right tools for navigating RDF in meteor/javascript such as in pubby? Should whis be done by hand by loading RDF, starting from a class or overview and loading appropriate predicates and objects for a selected class?"), # OK
-"ProgResource","url","http://www.w3.org/wiki/SemanticWebTools",
-"ProgResource","a","Resource",
-"ProgResource","qualification",L("para programação","pt"),
-"ProgResource","qualification",L("javascript","pt"),
-        "IDS","name","Renato Fabbri",
-        "IDS","usualID","rfabbri",
-        "IDS","nick","rfabbri",
-        "IDS","nick","hybrid",
-        "IDS","nick","blober",
-        "IDS","nick","hercules",
-        "IDS","nick","tatoman",
-        "IDS","nick","greenkobold",
-        "IDS","pseudonyms","Various manly for music, code and literature",
-        "IDS","birthdate","19/Out/1982",
-        tpick=I(tclass="PICK",tid=mkid("PICK"),
-        "IDS","pick",tpick,
-        tpick,P("url"),L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1384027461.png"),
-        tpick,P("qualification"),L("no neck"),
-        tpick,P("qualification"),L("strange"),
-
-        tpick=I(tclass="PICK",tid=mkid("PICK")
-        "IDS","pick",tpick,
-        tpick,P("url"),L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1390391951.png"),
-        tpick,P("qualification"),L("funny"),
-        tpick,P("qualification"),L("strange eye"),
-        tpick,P("qualification"),L("show off"),
-
-        tpick=I(tclass="PICK",tid=mkid("PICK")
-        "IDS","pick",tpick,
-        tpick,P("url"),L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/28042014.png"),
-        tpick,P("qualification"),L("ok"),
-
-        tpick=I(tclass="PICK",tid=mkid("PICK")
-        "IDS","pick",tpick,
-        tpick,P("url"),L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/2011-09-02-023637__.png"),
-        tpick,P("qualification"),L("freak"),
-        ]
-##
 tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
 G(tmilestone,"level",100)
 G(tmilestone,"description","deposit thesis")
