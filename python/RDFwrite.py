@@ -23,66 +23,37 @@ def namespaces(ids=[]):
     output: dictionary of {key=id, value=URI} as declared
     
     Deals automaticaly with namespaces from RDFlib and selected
-    participatory libs""""
+    participatory libs"""
     idict={}
     for tid in ids:
         # findig URIRef 
-        if type(tid)!="string": # tuple (tid,iuri)
+        if type(tid)!=type("fooString"): # tuple (tid,iuri)
             idict[tid[0]]=r.Namespace(tid[1])
-        elif tid in [fooString.lower() for fooString in dir(r.namespaces)]: # rdflib shortcut
-            if tid in dir(r.namespaces):
+        elif tid in [fooString.lower() for fooString in dir(r.namespace)]: # rdflib shortcut
+            if tid in dir(r.namespace):
                 idict[tid]=eval("r.namespace."+tid)
             else:
-                idict[tid]=eval("r.namespace."+tid.uppercase())
+                idict[tid]=eval("r.namespace."+tid.upper())
         else: # participatory shortcut
             idict[tid]=r.Namespace("http://purl.org/socialparticipation/{}/".format(tid))
         # adding to RDF Graph
-        g.namespace_manager.bind(tid, idict[tid])    
+        if type(tid)!=type("fooString"): # tuple (tid,iuri)
+            g.namespace_manager.bind(tid[0], idict[tid[0]])    
+        else:
+            g.namespace_manager.bind(tid, idict[tid])    
+    return idict
 
 
 pe.namespaces=namespaces
 
 namespaces=pe.namespaces(["rdf","rdfs","owl","xsd", # basic namespaces
                           "aa","ot","opa","ops","ore", "obs","vbs","ocd", # participatory namespaces
-                          "wsg","dc2","dc","sioc","tsioc","schema"
+                          "dcterms","dc", # useful Dublincore Metadata
+                            ("wsg","http://www.w3.org/2003/01/geo/wgs84_pos#"), # georeferencing
+                            ("sioc","http://rdfs.org/sioc/ns#"), # online communities
+                            ("tsioc","http://rdfs.org/sioc/types#"), # sioc types 
+                            ("schema","http://schema.org/") # umbrella
                           ])
-
-# BASIC NAMESPACES
-rdf = r.namespace.RDF
-g.namespace_manager.bind("rdf", rdf)    
-rdfs = r.namespace.RDFS
-g.namespace_manager.bind("rdfs", rdfs)    
-foaf = r.namespace.foaf
-g.namespace_manager.bind("foaf", foaf)    
-owl = r.namespace.OWL
-g.namespace_manager.bind("owl", owl)    
-xsd = r.namespace.XSD
-g.namespace_manager.bind("xsd", xsd)
-
-# PARTICIPATORY NAMESPACES
-aa = r.Namespace("http://purl.org/socialparticipation/aa/")
-g.namespace_manager.bind("aa", aa)    
-ot = r.Namespace("http://purl.org/socialparticipation/ot/")
-g.namespace_manager.bind("ot", ot) 
-opa = r.Namespace("http://purl.org/socialparticipation/opa/")
-g.namespace_manager.bind("opa", opa)    
-ops = r.Namespace("http://purl.org/socialparticipation/ops/")
-g.namespace_manager.bind("ops", ops)    
-ore = r.Namespace("http://purl.org/socialparticipation/ore/")
-g.namespace_manager.bind("ore", ore)    
-obs = r.Namespace("http://purl.org/socialparticipation/obs/")
-g.namespace_manager.bind("obs", obs)    
-vbs = r.Namespace("http://purl.org/socialparticipation/vbs/")
-g.namespace_manager.bind("vbs", vbs)    
-
-# USEFUL NAMESPACES
-g.namespace_manager.bind("wsg", "http://www.w3.org/2003/01/geo/wgs84_pos#")    
-g.namespace_manager.bind("dc2", "http://purl.org/dc/elements/1.1/")    
-g.namespace_manager.bind("dc", "http://purl.org/dc/terms/")    
-g.namespace_manager.bind("sioc", "http://rdfs.org/sioc/ns#")    
-g.namespace_manager.bind("tsioc", "http://rdfs.org/sioc/types#")    
-g.namespace_manager.bind("schema", "http://schema.org/")
-
 
 
 
