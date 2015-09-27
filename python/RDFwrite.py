@@ -93,13 +93,93 @@ G(    ns["ore"].ProgResource,
 turi=ID_GEN(ns["ore"].ProgResource,"semantic_web_tools")
 G(turi,ns["ore"].qualification,L("para programação",lang="pt"))
 G(turi,ns["ore"].qualification,L("javascript",lang="pt"))
-#"ProgResource","url","http://www.w3.org/wiki/SemanticWebTools",
-#"ProgResource","a","Resource", # OK
-#"ProgResource","qualification",L("para programação","pt"),
-#"ProgResource","qualification",L("javascript","pt"),
 
+G(    ID_GEN(ns["ore"].Id,"name"),
+      ns["ore"].description,
+      L("Renato Fabbri",datatype=ns["xsd"].string)
+  )
 
-# Save resulting RDF as XML and Turtle
+G(    ID_GEN(ns["ore"].Id,"usualID"),
+      ns["ore"].description,
+      L("rfabbri",datatype=ns["xsd"].string)
+  )
+
+G(ns["ore"].Nick,
+        ns["rdfs"].subClassOf,
+        ns["ore"].Id)
+
+G(    ID_GEN(ns["ore"].Nick,"rfabbri"),
+      ns["ore"].description,
+      L("rfabbri",datatype=ns["xsd"].string)
+  )
+
+G(    ID_GEN(ns["ore"].Nick,"hybrid"),
+      ns["ore"].description,
+      L("hybrid",datatype=ns["xsd"].string)
+  )
+nicks=("blober","hercules","tatoman","greenkobold","ttm")
+for nick in nicks:
+    G(    ID_GEN(ns["ore"].Nick,nick),
+          ns["ore"].description,
+          L(nick,datatype=ns["xsd"].string)
+      )
+
+G(ns["ore"].Birthdate,
+        ns["rdfs"].subClassOf,
+        ns["ore"].Id)
+
+G(    ID_GEN(ns["ore"].Birthdate,"birth"),
+      ns["ore"].description,
+      L("19/Out/1982",datatype=ns["xsd"].dateTime)
+  )
+
+G(ns["ore"].Pick,
+        ns["rdfs"].subClassOf,
+        ns["ore"].Id)
+
+turi=ID_GEN(ns["ore"].Pick,"1")
+G(    turi,
+      ns["ore"].url,
+    L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1384027461.png",datatype=ns["xsd"].anyURI),
+  )
+
+G(    turi,
+      ns["ore"].qualification,
+    L("no neck",lang="en")
+  )
+
+G(    turi,
+      ns["ore"].qualification,
+    L("strange",lang="en")
+  )
+turi=ID_GEN(ns["ore"].Pick,"2")
+G(    turi,
+      ns["ore"].url,
+    L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/Webcam-1390391951.png",datatype=ns["xsd"].anyURI),
+  )
+G(    turi,
+      ns["ore"].qualification,
+    L("funny, strange eye, show off",lang="en")
+  )
+turi=ID_GEN(ns["ore"].Pick,"3")
+G(    turi,
+      ns["ore"].url,
+    L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/28042014.png",datatype=ns["xsd"].anyURI),
+  )
+G(    turi,
+      ns["ore"].qualification,
+    L("ok",lang="en")
+  )
+turi=ID_GEN(ns["ore"].Pick,"4")
+G(    turi,
+      ns["ore"].url,
+    L("https://dl.dropboxusercontent.com/u/22209842/fotosImagens/2011-09-02-023637__.png",datatype=ns["xsd"].anyURI),
+  )
+G(    turi,
+      ns["ore"].qualification,
+    L("freak",lang="en")
+  )
+
 
 
 
