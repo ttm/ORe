@@ -13,11 +13,11 @@ g = r.Graph()
 def G(S,P,O):
     g.add((S,P,O))
 #L=r.Literal
-def L(data, datatype_=None,lang=None):
-    if datatype_ and lang:
-        return r.Literal(data, datatype=datatype_,lang=lang)
-    elif datatype_:
-        return r.Literal(data, datatype=datatype_)
+def L(data, datatype=None,lang=None):
+    if datatype and lang:
+        return r.Literal(data, datatype=datatype,lang=lang)
+    elif datatype:
+        return r.Literal(data, datatype=datatype)
     elif lang:
         return r.Literal(data, lang=lang)
     else:
@@ -191,8 +191,75 @@ G(turi,ore.level,L(100,xsd.integer))
 G(turi,ore.description,L("deposit thesis",0,"en"))
 G(turi,ore.dueDate,L("15/Dec/2015",xsd.dateTime))
 
+turi=ID_GEN(ore.Milestone,"finishArticles")
+G(turi,ore.level,L(100,xsd.integer))
+G(turi,ore.description,L("deliver final versions of articles",0,"en"))
+G(turi,ore.dueDate,L("27/Out/2015",xsd.dateTime))
 
+turi=ID_GEN(ore.Milestone,"finishSoftware")
+G(turi,ore.level,L(100,xsd.integer))
+G(turi,ore.description,L("deliver final versions of software",0,"en"))
+G(turi,ore.dueDate,L("15/Nov/2015",xsd.dateTime))
 
+turi=ID_GEN(ore.Milestone,"finishAudiovisualizations")
+G(turi,ore.level,L(100,xsd.integer))
+G(turi,ore.description,L("deliver final versions of audiovisualizations",0,"en"))
+G(turi,ore.dueDate,L("15/Nov/2015",xsd.dateTime))
+
+turi=ID_GEN(ore.Milestone,"thesisDefense")
+G(turi,ore.level,L(100,xsd.integer))
+G(turi,ore.description,L("thesis defense",0,"en"))
+G(turi,ore.dueDate,L("15/Fev/2016",xsd.dateTime))
+
+turi=ID_GEN(ore.Milestone,"thesisReview")
+G(turi,ore.level,L(100,xsd.integer))
+G(turi,ore.description,L("deliver thesis review",0,"en"))
+G(turi,ore.dueDate,L("15/Apr/2016",xsd.dateTime))
+
+turi=ID_GEN(ore.Milestone,"thesisAdvisorReview")
+G(turi,ore.level,L(100,xsd.integer))
+G(turi,ore.description,L("deliver thesis for review by the advisor",0,"en"))
+G(turi,ore.dueDate,L("15/Nov/2016",xsd.dateTime))
+
+turi=ID_GEN(ore.Milestone,"FinishDoctorate")
+G(turi,ore.level,L(200,xsd.integer))
+G(turi,ore.description,L("finish doctare process",0,"en"))
+G(turi,ore.dueDate,L("15/Mai/2016",xsd.dateTime))
+
+rdfs=ns["rdfs"]
+G(ore.Milestone,rdfs.comment,L("a goal that consists of other minor milestones or tasks. A milestone should usually take at least one day.",0,"en"))
+# Deriving ontoloty naturally, this can be commented off as
+# our data driven ORe will present this relations
+#G(ore.level,rdfs.range,xsd.integer)
+#G(ore.task,rdfs.range,ore.Milestone)
+#G(ore.task,rdfs.range,ore.Task)
+
+G(ore.Task,rdfs.comment,L("a simple task without subdivisions a priori.",0,"en"))
+
+tmil=ID_GEN(ore.Milestone,"oreStart")
+G(tmil,ore.description,L("write first operating version of ORe to be confortable enough for next task",xsd.string))
+G(tmil,ore.dueDate,L("26/Set/2015",xsd.dateTime))
+G(tmil,ore.level,L(10,xsd.integer))
+
+tmil=ID_GEN(ore.Milestone,"orePercolate")
+G(tmil,ore.description,L("write first operating version of ORe to be confortable enough for next task",xsd.string))
+G(tmil,ore.dueDate,L("26/Set/2015",xsd.dateTime))
+G(tmil,ore.level,L(7,xsd.integer))
+
+tmil=ID_GEN(ore.Milestone,"cssBeta")
+G(tmil,ore.description,L("make first betas for ccs presentation",xsd.string))
+G(tmil,ore.dueDate,L("26/Set/2015",xsd.dateTime))
+G(tmil,ore.level,L(10,xsd.integer))
+
+talg=ID_GEN(ore.Algorithm,"obsSynth")
+G(talg,ore.description,L("triplification facilities for rapid specificationi. Created in the RDF representation of the Brazilian Decree 8.243 (PNPS) conceptualization.",0,"en"))
+G(talg,ore.url,L("https://github.com/ttm/vocabulario-participacao/blob/master/scripts/obsPNPS.py",xsd.anyURI))
+
+G(talg,ore.derivedResource,ore.Resource+"#Percolation")
+G(talg,ore.url,L("https://github.com/ttm/vocabulario-participacao/blob/master/scripts/obsPNPS.py",xsd.anyURI))
+
+G(ore.ot,ore.prototypeOf,ore.base+"#Ontology")
+G(ore.ot,ore.prototypeOf,ore.base+"#Framework")
 
 f=open("rdf/oreFirstTriplestore.rdf","wb")
 f.write(g.serialize())
@@ -204,73 +271,6 @@ f.close()
 #### TTM
 """
 sys.exit()
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",100)
-G(tmilestone,"description","deposit thesis")
-G(tmilestone,"dueDate","15/Dec/2015")
-
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",100)
-G(tmilestone,"description","deliver final versions of articles")
-G(tmilestone,"dueDate","27/Out/2015")
-
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",100)
-G(tmilestone,"description","deliver final versions of software")
-G(tmilestone,"dueDate","15/Nov/2015")
-
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",100)
-G(tmilestone,"description","deliver final versions of audiovisualizations")
-G(tmilestone,"dueDate","15/Nov/2015")
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",100)
-G(tmilestone,"description","thesis defense")
-G(tmilestone,"dueDate","15/Fev/2015")
-
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",100)
-G(tmilestone,"description","final thesis review")
-G(tmilestone,"dueDate","15/Abr/2015")
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",100)
-G(tmilestone,"description","deliver thesis for advisor review")
-G(tmilestone,"dueDate","15/Nov/2015")
-
-toverlay=C("MilestoneOverlay")
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",200)
-G(tmilestone,"description","Finish doctorate process")
-
-C("Milestone",rdf.description,"a goal that consists of other minor milestones or tasks. A milestone should usually take at least one day."
-P("level",rdf.description,"a milestone level: higher level milestones consist of lower level milestones and tasks.")
-P("level",rdf.range,int)
-
-C("Task",rdf.description,"a simple task without subdivisions a-priori.")
-
-P("Milestone","task",("Milestone","Task"))
-
-tmilestone0=tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",10)
-G(tmilestone,"description","write first operating version of ORe to be confortable enough for next task")
-G(tmilestone,"dueDate","26/Set/2015")
-
-tmilestone0=tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",7)
-G(tmilestone,"description","Integrate percolation python package to ORe in the making of the RDF")
-G(tmilestone,"dueDate","26/Set/2015")
-
-tmilestone=C(tclass="Milestone",tid=mkid("Milestone"))
-G(tmilestone,"level",10)
-G(tmilestone,"description","make first betas for ccs presentation")
-G(tmilestone0,ore.nextTask,tmilestone)
 
 #############
 ## Resources
