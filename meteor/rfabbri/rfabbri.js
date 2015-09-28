@@ -1,5 +1,13 @@
 InStuff = new Mongo.Collection("in-stuff");
 Router.route('/stuff');
+Router.route('/ccs');
+Router.route('/slide/:_id/:_id2',function (){
+	this.render('slide'+this.params._id+this.params._id2);
+});
+
+Router.route('/slide/:_id',function (){
+	this.render('slide'+this.params._id);
+});
 Router.route('/', {
 	    template: 'home'
 });
