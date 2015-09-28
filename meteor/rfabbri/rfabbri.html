@@ -1,0 +1,32 @@
+<head>
+  <title>rfabbri</title>
+</head>
+
+<body>
+  <h1>Welcome to Renato Fabbri's homepage!</h1>
+  {{> hello}}
+</body>
+
+<template name="home">
+You are at home!
+  <p>I will try to keep this space updated with news, gadgets,
+  art and (potentially) new findings.</p>
+</template>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+  <form class="new-task">
+	  <input type="text" name="text" placeholder="Type to add new stuff" />
+  </form>
+  <p>{{tstatus}}</p>
+</template>
+
+<template name="stuff">
+    <h2>Stuff</h2>
+    <ul>
+{{#each stuffs}}
+<li>{{text}},{{createdAt}}</li>
+{{/each}}
+</ul>
+</template>
