@@ -1,0 +1,15 @@
+@prefix ns1: <http://purl.org/socialparticipation/aa/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://purl.org/socialparticipation/aa/Shout#1446181719.55061403036> a ns1:Shout ;
+    ns1:created "2015-10-30T03:08:39.551119"^^xsd:dateTime ;
+    ns1:mongoDuplicate 1 ;
+    ns1:provenance "ORe"^^xsd:string ;
+    ns1:shoutMessage "#gitcommit ::: terminada revisao da intro com figura nova"^^xsd:string .
+
+<http://purl.org/socialparticipation/aa/User#hybrid> a ns1:User ;
+    ns1:nick "hybrid"^^xsd:string .
+
